@@ -71,4 +71,35 @@ public class RegistroVenta {
         
     }
     
+    public static ArrayList<objeto> mostrarValor(String qry){
+        
+        ArrayList<objeto> listainventario = new ArrayList<>();
+        
+        try{
+            Connection Conexion = conexion.getConnection();
+            String query = qry;
+            PreparedStatement mostrarVentas = Conexion.prepareStatement(query);
+            ResultSet rs = mostrarVentas.executeQuery();
+            while(rs.next()){
+                
+                objeto o = new objeto();
+                o.setSerial(rs.getInt("serial"));
+                o.setNombre(rs.getString("nombre"));
+                o.setDescripcion(rs.getString("Descripcion"));
+                o.setRestriccion(rs.getString("Restriccion"));
+                o.setValor(rs.getInt("Valor"));
+                listainventario.add(o);
+                
+            }
+            Conexion.close();
+        }catch(SQLException s){
+            System.out.println("Error SQL al listar Objeto"+s.getMessage());
+        }catch(ClassNotFoundException e){
+            System.out.println("Error al listar Objeto"+e.getMessage());
+        }
+        return listainventario;
+        
+    }
+    
+    
 }

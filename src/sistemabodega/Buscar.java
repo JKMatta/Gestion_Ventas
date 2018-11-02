@@ -19,7 +19,7 @@ import Conexion.conexion;
  */
 public class Buscar extends javax.swing.JFrame {
     
-    String url="jdbc:mysql://localhost:3306/bodega";
+    String url="jdbc:mysql://localhost:3306/bd";
     String user="root";   //estamos iniciando la connecion a la base de datos
     String pass="";
 
@@ -44,11 +44,6 @@ public class Buscar extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         btnbuscartodo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        cboxtipo = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        txtnombre = new javax.swing.JTextField();
-        btnbuscar = new javax.swing.JButton();
         fondopantalla = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jopciones = new javax.swing.JMenu();
@@ -64,50 +59,28 @@ public class Buscar extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CODIGO", "NOMBRE", "CANTIDAD", "MARCA", "TIPO"
+                "SERIAL", "NOMBRE", "DESCRIPCION", "RESTRICCION", "VALOR"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 267, 1000, 300));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 167, 910, 330));
 
-        btnbuscartodo.setText("MOSTRAR TODOS LOS PRODUCTOS EN BODEGA");
+        btnbuscartodo.setText("Stock Games");
         btnbuscartodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnbuscartodoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnbuscartodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 220, 290, -1));
+        getContentPane().add(btnbuscartodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 130, 140, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel1.setText("BUSQUEDA AVANZADA");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        jLabel1.setText("GAME LIST");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel2.setText("BUSCAR POR :");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
-
-        cboxtipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "codigo", "nombre", "marca", "tipo" }));
-        getContentPane().add(cboxtipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 200, -1));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel3.setText("NOMBRE :");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
-        getContentPane().add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 240, -1));
-
-        btnbuscar.setText("BUSCAR");
-        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbuscarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 190, 110, -1));
-
-        fondopantalla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iByo7b.jpg"))); // NOI18N
-        getContentPane().add(fondopantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 610));
+        fondopantalla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Abstract-Minimalist-Shapes-4k.jpg"))); // NOI18N
+        getContentPane().add(fondopantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jopciones.setText("Opciones");
 
@@ -153,22 +126,6 @@ public class Buscar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnbuscartodoActionPerformed
 
-    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-        // TODO add your handling code here:
-        try(Connection connection = DriverManager.getConnection(url,user,pass)){
-            Statement s = connection.createStatement();
-            
-            String x1=cboxtipo.getSelectedItem().toString();
-            String x2=txtnombre.getText().trim();
-            
-            String query1 = "SELECT "+x1+" FROM bodega WHERE "+x1+" = "+x2+";";
-            s.executeQuery(query1);
-            System.out.println("BUSQUEDA EXITOSA");
-        }catch(SQLException e){
-            System.out.println("El error producido es "+e.getMessage());
-        } 
-    }//GEN-LAST:event_btnbuscarActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -205,19 +162,14 @@ public class Buscar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btnbuscartodo;
-    private javax.swing.JComboBox<String> cboxtipo;
     private javax.swing.JLabel fondopantalla;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JMenu jayuda;
     private javax.swing.JMenuItem jmenu;
     private javax.swing.JMenu jopciones;
-    private javax.swing.JTextField txtnombre;
     // End of variables declaration//GEN-END:variables
 }

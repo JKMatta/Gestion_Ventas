@@ -30,6 +30,7 @@ public class Menu extends javax.swing.JFrame {
 
         btnsalir = new javax.swing.JButton();
         btninrgesar = new javax.swing.JButton();
+        btn_venta = new javax.swing.JButton();
         btnmodificar = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
         fondopantalla = new javax.swing.JLabel();
@@ -62,7 +63,20 @@ public class Menu extends javax.swing.JFrame {
                 btninrgesarActionPerformed(evt);
             }
         });
-        getContentPane().add(btninrgesar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 200, 200));
+        getContentPane().add(btninrgesar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 200, 200));
+
+        btn_venta.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        btn_venta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Line_ui_icons_Svg-10_icon-icons.com_72171 (1).png"))); // NOI18N
+        btn_venta.setText("VENTA");
+        btn_venta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_venta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_venta.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_venta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ventaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 200, 200));
 
         btnmodificar.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         btnmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/writing_file.png"))); // NOI18N
@@ -70,7 +84,7 @@ public class Menu extends javax.swing.JFrame {
         btnmodificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnmodificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnmodificar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 200, 200));
+        getContentPane().add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 200, 200));
 
         btnbuscar.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/my_documents.png"))); // NOI18N
@@ -84,10 +98,10 @@ public class Menu extends javax.swing.JFrame {
                 btnbuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 190, 200, 200));
+        getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, 200, 200));
 
         fondopantalla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Abstract-Minimalist-Shapes-4k.jpg"))); // NOI18N
-        getContentPane().add(fondopantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 540));
+        getContentPane().add(fondopantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 540));
 
         jopciones.setText("Opciones");
         jopciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -138,6 +152,10 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnbuscarActionPerformed
 
+    private void btn_ventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ventaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_ventaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -175,6 +193,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_venta;
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btninrgesar;
     private javax.swing.JButton btnmodificar;
