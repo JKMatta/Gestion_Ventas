@@ -78,6 +78,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(txtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 280, -1));
 
         btnayuda.setText("HE OLVIDADO LA CONTRASEÑA");
+        btnayuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnayuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnayudaActionPerformed(evt);
@@ -86,6 +87,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(btnayuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 200, 20));
 
         btnsalir.setText("SALIR");
+        btnsalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsalirActionPerformed(evt);
@@ -94,6 +96,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, -1, -1));
 
         btniniciarsesion.setText("INICIAR SESION");
+        btniniciarsesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btniniciarsesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btniniciarsesionActionPerformed(evt);

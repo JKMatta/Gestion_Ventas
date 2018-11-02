@@ -33,6 +33,7 @@ public class Menu extends javax.swing.JFrame {
         btn_venta = new javax.swing.JButton();
         btnmodificar = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
+        btnbuscar1 = new javax.swing.JButton();
         fondopantalla = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jopciones = new javax.swing.JMenu();
@@ -54,7 +55,7 @@ public class Menu extends javax.swing.JFrame {
 
         btninrgesar.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         btninrgesar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new_file.png"))); // NOI18N
-        btninrgesar.setText("INGRESAR");
+        btninrgesar.setText("NEW GAME");
         btninrgesar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btninrgesar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btninrgesar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -67,7 +68,7 @@ public class Menu extends javax.swing.JFrame {
 
         btn_venta.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         btn_venta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Line_ui_icons_Svg-10_icon-icons.com_72171 (1).png"))); // NOI18N
-        btn_venta.setText("VENTA");
+        btn_venta.setText("SALE");
         btn_venta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_venta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_venta.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -80,7 +81,7 @@ public class Menu extends javax.swing.JFrame {
 
         btnmodificar.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         btnmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/writing_file.png"))); // NOI18N
-        btnmodificar.setText("MODIFICAR");
+        btnmodificar.setText("GAME EDIT");
         btnmodificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnmodificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnmodificar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -88,7 +89,7 @@ public class Menu extends javax.swing.JFrame {
 
         btnbuscar.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/my_documents.png"))); // NOI18N
-        btnbuscar.setText("BUSCAR");
+        btnbuscar.setText("SEARCH GAME");
         btnbuscar.setBorder(null);
         btnbuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnbuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -98,7 +99,21 @@ public class Menu extends javax.swing.JFrame {
                 btnbuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, 200, 200));
+        getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 200, 200));
+
+        btnbuscar1.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        btnbuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/my_documents.png"))); // NOI18N
+        btnbuscar1.setText("SEARCH SALE");
+        btnbuscar1.setBorder(null);
+        btnbuscar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnbuscar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnbuscar1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnbuscar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnbuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 200, 200));
 
         fondopantalla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Abstract-Minimalist-Shapes-4k.jpg"))); // NOI18N
         getContentPane().add(fondopantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 540));
@@ -154,7 +169,17 @@ public class Menu extends javax.swing.JFrame {
 
     private void btn_ventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ventaActionPerformed
         // TODO add your handling code here:
+        V_VENTA v = new V_VENTA();
+        v.show();
+        this.dispose();
     }//GEN-LAST:event_btn_ventaActionPerformed
+
+    private void btnbuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar1ActionPerformed
+        // TODO add your handling code here:
+            BuscarVenta b = new BuscarVenta();
+            b.show();
+            this.dispose();
+    }//GEN-LAST:event_btnbuscar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,6 +220,7 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_venta;
     private javax.swing.JButton btnbuscar;
+    private javax.swing.JButton btnbuscar1;
     private javax.swing.JButton btninrgesar;
     private javax.swing.JButton btnmodificar;
     private javax.swing.JButton btnsalir;

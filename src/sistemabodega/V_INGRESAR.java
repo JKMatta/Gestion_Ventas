@@ -98,7 +98,8 @@ public class V_INGRESAR extends javax.swing.JFrame {
         });
         getContentPane().add(cboxtipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 170, -1));
 
-        jButton1.setText("INRGESAR");
+        jButton1.setText("INGRESAR");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -107,6 +108,7 @@ public class V_INGRESAR extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, 170, 50));
 
         jButton2.setText("LIMPIAR");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -121,8 +123,11 @@ public class V_INGRESAR extends javax.swing.JFrame {
         getContentPane().add(fondopantalla1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jopciones.setText("Opciones");
+        jopciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menu.png"))); // NOI18N
         jmenu.setText("Menu");
+        jmenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jmenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmenuActionPerformed(evt);
@@ -133,6 +138,7 @@ public class V_INGRESAR extends javax.swing.JFrame {
         jMenuBar1.add(jopciones);
 
         jayuda.setText("Ayuda");
+        jayuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuBar1.add(jayuda);
 
         setJMenuBar(jMenuBar1);

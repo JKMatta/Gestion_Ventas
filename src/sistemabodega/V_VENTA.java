@@ -97,6 +97,7 @@ public class V_VENTA extends javax.swing.JFrame {
         getContentPane().add(cbox_juego, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 170, -1));
 
         btn_asept.setText("CONFIRMAR");
+        btn_asept.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_asept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_aseptActionPerformed(evt);
@@ -105,6 +106,7 @@ public class V_VENTA extends javax.swing.JFrame {
         getContentPane().add(btn_asept, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 140, 30));
 
         btn_clear.setText("LIMPIAR");
+        btn_clear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_clear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_clearActionPerformed(evt);
@@ -118,6 +120,7 @@ public class V_VENTA extends javax.swing.JFrame {
         getContentPane().add(na2, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 60, -1, -1));
 
         btn_confirm.setText("PAGAR");
+        btn_confirm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_confirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_confirmActionPerformed(evt);
@@ -148,8 +151,11 @@ public class V_VENTA extends javax.swing.JFrame {
         getContentPane().add(fondopantalla1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jopciones.setText("Opciones");
+        jopciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menu.png"))); // NOI18N
         jmenu.setText("Menu");
+        jmenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jmenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmenuActionPerformed(evt);
@@ -160,6 +166,7 @@ public class V_VENTA extends javax.swing.JFrame {
         jMenuBar1.add(jopciones);
 
         jayuda.setText("Ayuda");
+        jayuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuBar1.add(jayuda);
 
         setJMenuBar(jMenuBar1);
@@ -176,6 +183,8 @@ public class V_VENTA extends javax.swing.JFrame {
 
     private void btn_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearActionPerformed
         // TODO add your handling code here:
+        txt_cant.setText("");
+        txt_correo.setText("");
     }//GEN-LAST:event_btn_clearActionPerformed
 
     private void btn_aseptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aseptActionPerformed

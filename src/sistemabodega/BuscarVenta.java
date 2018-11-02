@@ -68,6 +68,7 @@ public class BuscarVenta extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 167, 910, 330));
 
         btnbuscartodo.setText("All View");
+        btnbuscartodo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnbuscartodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnbuscartodoActionPerformed(evt);
@@ -84,8 +85,11 @@ public class BuscarVenta extends javax.swing.JFrame {
         getContentPane().add(fondopantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jopciones.setText("Opciones");
+        jopciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menu.png"))); // NOI18N
         jmenu.setText("Menu");
+        jmenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jmenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmenuActionPerformed(evt);
@@ -96,6 +100,7 @@ public class BuscarVenta extends javax.swing.JFrame {
         jMenuBar1.add(jopciones);
 
         jayuda.setText("Ayuda");
+        jayuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuBar1.add(jayuda);
 
         setJMenuBar(jMenuBar1);
