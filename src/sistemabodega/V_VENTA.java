@@ -7,7 +7,11 @@ package sistemabodega;
 import Objetos.objeto;
 import Registros.RegistroVenta;
 import Conexion.conexion;
+import Controlador.Controlador;
+import Controlador.Correo;
+import Objetos.venta;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -180,7 +184,8 @@ public class V_VENTA extends javax.swing.JFrame {
         String correo=txt_correo.getText();
         String juego = cbox_juego.getSelectedItem().toString();
         int cant = Integer.parseInt(txt_cant.getText());
-        String qry = "select * from game where nombre = "+"juego";
+        String qry = "SELECT * FROM game WHERE nombre = "+"'"+juego+"'";
+        System.out.println("SELECT valor FROM game WHERE nombre = "+"'"+juego+"'");
         ArrayList<objeto> listainventario = RegistroVenta.mostrarValor(qry);
         String resultado = "";
         int total_aux=0;
@@ -205,6 +210,80 @@ public class V_VENTA extends javax.swing.JFrame {
 
     private void btn_confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirmActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        String correo=txt_correo.getText();
+        String juego = cbox_juego.getSelectedItem().toString();
+        int cant = Integer.parseInt(txt_cant.getText());
+        String qry = "SELECT * FROM game WHERE nombre = "+"'"+juego+"'";
+        System.out.println("SELECT valor FROM game WHERE nombre = "+"'"+juego+"'");
+        ArrayList<objeto> listainventario = RegistroVenta.mostrarValor(qry);
+        String resultado = "";
+        int total_aux=0;
+        int total;
+        int boleta=0;
+        
+        String send_correo,send_juego;
+        int send_id,send_cantidad,send_total;
+        
+        for(int i = 0; i < listainventario.size(); i++) {
+            total_aux = listainventario.get(i).getValor();
+            boleta = listainventario.get(i).getSerial();
+            System.out.println(total_aux +" / "+ boleta);
+            if (cant != 1) {
+                total = cant * total_aux;
+            }else{
+                total = total_aux;
+            }
+        venta v = new venta();
+        v.setCorreo(correo);
+        v.setJuego(juego);
+        v.setCantidad(cant);
+        v.setTotal(total);
+        
+            if(RegistroVenta.agregarCompraVenta(v))
+            {
+                javax.swing.JOptionPane.showMessageDialog(this, "Venta Ingresada al Inventario  :)");
+            }
+            else
+            {
+                javax.swing.JOptionPane.showMessageDialog(this, "[ERROR] No pudo ser Guardado  :( ");
+            }
+            
+            String qrysend = "SELECT * FROM venta WHERE correo = "+"'"+correo+"'";
+            ArrayList<venta> listaventa = RegistroVenta.EnviarDatos(qrysend);
+            
+            for(int x = 0; i < listaventa.size(); i++) {
+                send_id = listaventa.get(x).getId();
+                send_correo = listaventa.get(x).getCorreo();
+                send_juego = listaventa.get(x).getJuego();
+                send_cantidad = listaventa.get(x).getCantidad();
+                send_total = listaventa.get(x).getTotal();
+                
+                Correo c=new Correo();
+                
+                c.setContraseña("ymzzmvzgxqymatrb");
+                c.setUsuariocorreo("bodegatemporalcuadroverde@gmail.com");
+                c.setAsunto("Compra Finalizada #"+send_id);
+                c.setMensaje("Gracias. Aquí está su recibo del pago realizado con respecto al pedido en DondePanxitoGames. \n"+
+                            "Hola,"+send_correo+" \n"+
+                            "Su compra ha sido procesada con éxito."+"\n"+
+                            "\n"+
+                            "Resumen de Compra"+"\n"+
+                            "Numero de la Compra: "+send_id+"\n"+
+                            "Juego: "+send_juego+"\n"+
+                            "Total: $"+send_total);
+                c.setDestino(send_correo);
+                c.setNombreArchivo("FriendBot.png");
+                c.setRutaArchivo("FriendBot.png");
+                Controlador co=new Controlador();
+                co.enviarCorreo(c);
+                if(co.enviarCorreo(c)){
+                    JOptionPane.showMessageDialog(null, "Envio Correo");
+                }else{
+                   JOptionPane.showMessageDialog(null, "Error"); 
+                }
+            }
+        }
     }//GEN-LAST:event_btn_confirmActionPerformed
 
     /**
