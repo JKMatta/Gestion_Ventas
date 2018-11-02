@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-11-2018 a las 02:08:21
+-- Tiempo de generación: 02-11-2018 a las 04:38:57
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -44,7 +44,8 @@ INSERT INTO `game` (`serial`, `nombre`, `descripcion`, `restriccion`, `valor`) V
 (5545, 'rocket_league', 'jugador competitivo', 'T', 7500),
 (7815, 'Fallout_4', 'El mundo despues de la guerra', 'M', 6400),
 (1245, 'Outlast_2', 'la maldicion del viejo', 'M', 4500),
-(3245, 'TestLink', 'This is a test', 'E', 0);
+(3245, 'TestLink', 'This is a test', 'E', 0),
+(87, 'Minecraft', 'Los infinitos mundos de Minecraft están llenos de secretos.', 'E10+', 18000);
 
 -- --------------------------------------------------------
 
@@ -67,6 +68,7 @@ CREATE TABLE `venta` (
 INSERT INTO `venta` (`id`, `correo`, `juego`, `cantidad`, `total`) VALUES
 (1, 'asd', 'rocket_league', 2, 15000),
 (109, 'javier.alexander335@outlook.com', 'rocket_league', 1, 7500),
+(140, 'jav.matta@alumnos.duoc.cl', 'Minecraft', 1, 18000),
 (207, 'javier.alexander335@outlook.com', 'rocket_league', 1, 7500),
 (492, 'asdd', 'Fallout_4', 1, 6400);
 
