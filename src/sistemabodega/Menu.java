@@ -42,6 +42,7 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnsalir.setText("SALIR");
@@ -54,8 +55,10 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 20, -1, -1));
 
         btninrgesar.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        btninrgesar.setForeground(new java.awt.Color(240, 240, 240));
         btninrgesar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new_file.png"))); // NOI18N
         btninrgesar.setText("NEW GAME");
+        btninrgesar.setContentAreaFilled(false);
         btninrgesar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btninrgesar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btninrgesar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -64,11 +67,13 @@ public class Menu extends javax.swing.JFrame {
                 btninrgesarActionPerformed(evt);
             }
         });
-        getContentPane().add(btninrgesar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 200, 200));
+        getContentPane().add(btninrgesar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 140, 190));
 
         btn_venta.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        btn_venta.setForeground(new java.awt.Color(240, 240, 240));
         btn_venta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Line_ui_icons_Svg-10_icon-icons.com_72171 (1).png"))); // NOI18N
         btn_venta.setText("SALE");
+        btn_venta.setContentAreaFilled(false);
         btn_venta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_venta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_venta.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -77,20 +82,30 @@ public class Menu extends javax.swing.JFrame {
                 btn_ventaActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 200, 200));
+        getContentPane().add(btn_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 140, 190));
 
+        btnmodificar.setBackground(new java.awt.Color(102, 102, 102));
         btnmodificar.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        btnmodificar.setForeground(new java.awt.Color(240, 240, 240));
         btnmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/writing_file.png"))); // NOI18N
         btnmodificar.setText("GAME EDIT");
+        btnmodificar.setContentAreaFilled(false);
         btnmodificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnmodificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnmodificar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 200, 200));
+        btnmodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmodificarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 140, 190));
 
         btnbuscar.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        btnbuscar.setForeground(new java.awt.Color(240, 240, 240));
         btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/my_documents.png"))); // NOI18N
         btnbuscar.setText("SEARCH GAME");
         btnbuscar.setBorder(null);
+        btnbuscar.setContentAreaFilled(false);
         btnbuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnbuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnbuscar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -99,12 +114,14 @@ public class Menu extends javax.swing.JFrame {
                 btnbuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 200, 200));
+        getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 140, 190));
 
         btnbuscar1.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        btnbuscar1.setForeground(new java.awt.Color(240, 240, 240));
         btnbuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/my_documents.png"))); // NOI18N
         btnbuscar1.setText("SEARCH SALE");
         btnbuscar1.setBorder(null);
+        btnbuscar1.setContentAreaFilled(false);
         btnbuscar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnbuscar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnbuscar1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -113,7 +130,7 @@ public class Menu extends javax.swing.JFrame {
                 btnbuscar1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnbuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 200, 200));
+        getContentPane().add(btnbuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 290, 140, 190));
 
         fondopantalla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Abstract-Minimalist-Shapes-4k.jpg"))); // NOI18N
         getContentPane().add(fondopantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 540));
@@ -180,6 +197,13 @@ public class Menu extends javax.swing.JFrame {
             b.show();
             this.dispose();
     }//GEN-LAST:event_btnbuscar1ActionPerformed
+
+    private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
+        // TODO add your handling code here:
+        GameEdit g = new GameEdit();
+        g.show();
+        this.dispose();
+    }//GEN-LAST:event_btnmodificarActionPerformed
 
     /**
      * @param args the command line arguments

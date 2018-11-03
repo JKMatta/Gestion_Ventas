@@ -2,7 +2,12 @@
 package sistemabodega;
 import Controlador.Correo;
 import Controlador.Controlador;
+import Objetos.Personal;
+import Objetos.objeto;
+import Registros.RegistroVenta;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -11,28 +16,46 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
     
     Correo c=new Correo();
+    String url="jdbc:mysql://localhost:3306/bd";
+    String user="root";   //estamos iniciando la connecion a la base de datos
+    String pass="";
 
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
     
-    public void HeOlvidadoLaCuenta(){
-        c.setContraseña("ymzzmvzgxqymatrb");
-        c.setUsuariocorreo("bodegatemporalcuadroverde@gmail.com");
-        c.setAsunto("Recuperar Contraseña");
-        c.setMensaje("Hola. Te quiero informar que tu contraseña es [BNX66K318143] y tu Usuario es [jcarlos]. Suerte. :)");
-        c.setDestino(txt_correo.getText());
-        c.setNombreArchivo("FriendBot.png");
-        c.setRutaArchivo("FriendBot.png");
-        Controlador co=new Controlador();
-        co.enviarCorreo(c);
-        if(co.enviarCorreo(c)){
-            JOptionPane.showMessageDialog(null, "Envio Correo");
+    public void HeOlvidadoLaCuenta(){  
+        String correo = txt_correo.getText();
+        String qry = "SELECT * FROM personal WHERE correo = "+"'"+correo+"'";
+        ArrayList<Personal> listainventario = RegistroVenta.mostrarPersonal(qry);
+        String corr="",pass="",us="";
+        for (int i = 0; i < listainventario.size(); i++) {
+            
+            corr = listainventario.get(i).getCorreo();
+            pass = listainventario.get(i).getPassword();
+            us = listainventario.get(i).getUsuario();
+        }
+        if (correo.equals(corr)) {
+            c.setContraseña("ymzzmvzgxqymatrb");
+                c.setUsuariocorreo("bodegatemporalcuadroverde@gmail.com");
+                c.setAsunto("Recuperar Contraseña");
+                c.setMensaje("Hola. Te quiero informar que tu contraseña es "+pass+" y tu Usuario es "+us);
+                c.setDestino(corr);
+                c.setNombreArchivo("FriendBot.png");
+                c.setRutaArchivo("FriendBot.png");
+                Controlador co=new Controlador();
+                co.enviarCorreo(c);
+                if(co.enviarCorreo(c)){
+                    JOptionPane.showMessageDialog(null, "Envio Correo");
+                }else{
+                   JOptionPane.showMessageDialog(null, "Error");
+                }
         }else{
-           JOptionPane.showMessageDialog(null, "Error"); 
+            JOptionPane.showMessageDialog(null, "Correo Desconocido");
         }
     }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

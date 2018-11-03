@@ -7,6 +7,7 @@ package Registros;
 
 import java.sql.*;
 import Conexion.conexion;
+import Objetos.Personal;
 import Objetos.objeto;
 import Objetos.venta;
 import java.util.ArrayList;
@@ -30,6 +31,27 @@ public class RegistroVenta {
             insertar.setString(3,o.getDescripcion());
             insertar.setString(4,o.getRestriccion());
             insertar.setInt(5,o.getValor());
+            insertar.execute();
+            Conexion.close();
+            return true;
+        }catch(SQLException s){
+            System.out.println("Error SQL al agregar Objeto"+s.getMessage());
+            return false;
+        }catch(ClassNotFoundException e){
+            System.out.println("Error al agregar Objeto"+e.getMessage());
+            return false;
+        }
+    }
+    
+    public static boolean ModificarVenta(objeto o,int seri){
+        try{
+            Connection Conexion = conexion.getConnection();
+            String query = "UPDATE game SET nombre,descripcion,restriccion,valor WHERE serial = '"+seri+"' values (?,?,?,?)";
+            PreparedStatement insertar = Conexion.prepareStatement(query);
+            insertar.setString(1,o.getNombre());
+            insertar.setString(2,o.getDescripcion());
+            insertar.setString(3,o.getRestriccion());
+            insertar.setInt(4,o.getValor());
             insertar.execute();
             Conexion.close();
             return true;
@@ -182,6 +204,35 @@ public class RegistroVenta {
             System.out.println("Error al listar Objeto"+e.getMessage());
         }
         return listaventa;
+        
+    }
+    
+    public static ArrayList<Personal> mostrarPersonal(String qry){
+        
+        ArrayList<Personal> listainventario = new ArrayList<>();
+        
+        try{
+            Connection Conexion = conexion.getConnection();
+            String query = qry;
+            PreparedStatement mostrarPersonal = Conexion.prepareStatement(query);
+            ResultSet rs = mostrarPersonal.executeQuery();
+            while(rs.next()){
+                
+                Personal p = new Personal();
+                p.setUsuario(rs.getString("usuario"));
+                p.setCorreo(rs.getString("correo"));
+                p.setPassword(rs.getString("password"));
+                p.setRut(rs.getString("rut"));
+                listainventario.add(p);
+                
+            }
+            Conexion.close();
+        }catch(SQLException s){
+            System.out.println("Error SQL al listar Objeto"+s.getMessage());
+        }catch(ClassNotFoundException e){
+            System.out.println("Error al listar Objeto"+e.getMessage());
+        }
+        return listainventario;
         
     }
 }
