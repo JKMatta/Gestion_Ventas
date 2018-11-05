@@ -5,7 +5,6 @@
  */
 package Controlador;
 
-import com.sun.xml.internal.org.jvnet.mimepull.MIMEMessage;
 import java.util.Properties;
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
